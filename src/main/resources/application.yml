@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: Datawarehouse-Test
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://10.0.0.5:3306/datawarehouse?useSSL=false
+    username: wolfgang
+    password: baby1985
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        ddl-auto: update
+  flyway:
+    enable: true
+    locations: classpath:/db/migrations/{vendor}
+    baseline-version: '0.0.0.1'
+    baseline-description: '<<Baseline Version>>'
+    baseline-on-migrate: true
+    validate-on-migrate: true
+server:
+  port: 8080
